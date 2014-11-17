@@ -24,6 +24,15 @@ pulled to make sure the timing is valid. But this degrades system performance.
 the range from 20ns to 5000ns. In our reference application there is an FPGA but
 a discrete monoflop should also do.
 
+## Install
+
+Dependencies:
+
+* libbfd
+* libiberty
+
+A simple "make" should be sufficient. More Makefile magic is welcome :)
+
 ##Prerequisites
 
 Three gpios exported in `/sys/class/gpio` have to be supplied to **c2tool**:
