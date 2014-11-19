@@ -63,6 +63,9 @@ Commands:
 
         verify [target <bfdname>] [adjust-start <incr>] <file>
                 Verify file to flash memory of connected device.
+
+        reset
+                Reset connected device.
 ```
 
 ## C2 Documentation
