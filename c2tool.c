@@ -25,6 +25,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "c2tool.h"
 
@@ -262,5 +263,5 @@ int main(int argc, char **argv)
 	} else if (err < 0)
 		fprintf(stderr, "command failed: %s (%d)\n", strerror(-err), err);
 
-	return err;
+	return err ? EXIT_FAILURE : EXIT_SUCCESS;
 }
