@@ -107,7 +107,7 @@ static void c2ck_strobe(struct c2interface *c2if)
  * C2 primitives
  */
 
-static void c2_reset(struct c2interface *c2if)
+void c2_reset(struct c2interface *c2if)
 {
 	/* To reset the device we have to keep clock line low for at least
 	 * 20us.

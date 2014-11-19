@@ -10,7 +10,7 @@ RM  = rm -f
 EXE = c2tool
 
 OBJ = c2tool.o c2interface.o c2family.o hexdump.o version.o
-OBJ += info.o dump.o flash.o erase.o verify.o
+OBJ += info.o dump.o flash.o erase.o verify.o reset.o
 
 CFLAGS    += -Wall
 

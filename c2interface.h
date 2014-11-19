@@ -19,6 +19,7 @@ struct c2_pi_info {
 
 struct c2tool_state;
 
+void c2_reset(struct c2interface *c2if);
 int c2_halt(struct c2interface *c2if);
 int c2_get_device_info(struct c2interface *c2if, struct c2_device_info *info);
 
