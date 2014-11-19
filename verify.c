@@ -27,6 +27,7 @@
 struct flash_section_data {
 	struct c2tool_state *state;
 	unsigned int offset;
+	unsigned int errctr;
 };
 
 static void verify_section(bfd * ibfd, sec_ptr isection, void *arg)
@@ -59,7 +60,7 @@ static void verify_section(bfd * ibfd, sec_ptr isection, void *arg)
 			return;
 		if (memcmp(data, buf, chunk)) {
 			printf("verify failed in %d byte chunk at %08x\n", chunk, flash_addr);
-			return;
+			fsdata->errctr++;
 		}
 
 		flash_addr += chunk;
@@ -73,7 +74,7 @@ static void verify_section(bfd * ibfd, sec_ptr isection, void *arg)
 static int c2_verify_file(struct c2tool_state *state, const char *filename, const char *target, unsigned int offset)
 {
 	bfd *ibfd;
-	struct flash_section_data fsdata = { state, offset };
+	struct flash_section_data fsdata = { state, offset, 0 };
 
 	ibfd = bfd_openr(filename, target);
 	if (ibfd == NULL) {
@@ -88,7 +89,7 @@ static int c2_verify_file(struct c2tool_state *state, const char *filename, cons
 
 	bfd_map_over_sections(ibfd, verify_section, &fsdata);
 
-	return 0;
+	return fsdata.errctr ? -EINVAL : 0;
 }
 
 int handle_verify(struct c2tool_state *state, int argc, char **argv)
