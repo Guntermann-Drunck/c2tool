@@ -13,7 +13,7 @@ There is a linux kernel driver (drivers/misc/c2port) for this, **but**
 * `local_irq_disable()` affects real time performance
 * GPIOs can be easily accessed from userspace
 
-##Challenge
+## Challenge
 
 The C2 Clock signal is shared with an active-low reset signal on the
 target device. Any clock pulse taking longer than 20us is interpreted as a reset
@@ -33,7 +33,7 @@ Dependencies:
 
 A simple "make" should be sufficient. More Makefile magic is welcome :)
 
-##Prerequisites
+## Prerequisites
 
 Three gpios exported in `/sys/class/gpio` have to be supplied to **c2tool**:
 
