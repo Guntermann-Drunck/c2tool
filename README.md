@@ -1,4 +1,4 @@
-#c2tool
+# c2tool
 
 **c2tool** is a linux userspace application meant to enable in-system
 programming on low pin-count Silicon Labs devices using the Silicon Labs
